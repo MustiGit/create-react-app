@@ -82,9 +82,7 @@ const applySharetribeConfigs = (config, options) => {
     // Add custom externals as server doesn't need to bundle everything
     newConfig.externals = [
       '@loadable/component',
-      nodeExternals({
-        whitelist: /\.css$/
-      }), // Ignore all modules in node_modules folder
+      nodeExternals(), // Ignore all modules in node_modules folder { whitelist: /\.css$/ }
     ];
 
     // Use a 'node' subdirectory for the server build
