@@ -50,11 +50,11 @@ const checkConfigStructure = config => {
   const hasOptimization = !!config.optimization;
 
   const configStructureKnown = hasRules
-        && hasOneOf
-        && hasCssLoader
-        && hasPlugins
-        && hasOutput
-        && hasOptimization;
+    && hasOneOf
+    && hasCssLoader
+    && hasPlugins
+    && hasOutput
+    && hasOptimization;
 
   if (!configStructureKnown) {
     throw new Error(
@@ -82,7 +82,9 @@ const applySharetribeConfigs = (config, options) => {
     // Add custom externals as server doesn't need to bundle everything
     newConfig.externals = [
       '@loadable/component',
-      nodeExternals(), // Ignore all modules in node_modules folder
+      nodeExternals({
+        whitelist: /\.css$/
+      }), // Ignore all modules in node_modules folder
     ];
 
     // Use a 'node' subdirectory for the server build
