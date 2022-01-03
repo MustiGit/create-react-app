@@ -3,6 +3,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "version": "5.1.2",
   "scripts": {
     "build": "cd packages/react-scripts && node bin/react-scripts.js build",
     "changelog": "lerna-changelog",
